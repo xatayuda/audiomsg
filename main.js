@@ -1,4 +1,3 @@
-// script.js
 const recordButton = document.getElementById("recordButton");
 const stopButton = document.getElementById("stopButton");
 const messagesDiv = document.getElementById("messages");
@@ -6,7 +5,7 @@ const messagesDiv = document.getElementById("messages");
 let mediaRecorder;
 let audioChunks = [];
 
-// Solicitar permisos de audio al usuario
+
 navigator.mediaDevices.getUserMedia({ audio: true })
 .then(stream => {
     mediaRecorder = new MediaRecorder(stream);
@@ -39,7 +38,7 @@ navigator.mediaDevices.getUserMedia({ audio: true })
     alert("Por favor, permite el acceso al micrófono para usar esta función.");
 });
 
-// Agregar un mensaje de voz a la página y eliminarlo en 5 segundos
+
 function addAudioMessage(audioURL) {
 const messageDiv = document.createElement("div");
 messageDiv.classList.add("audio-message");
@@ -51,8 +50,11 @@ audio.controls = true;
 messageDiv.appendChild(audio);
 messagesDiv.appendChild(messageDiv);
 
-  // Eliminar el mensaje después de 5 segundos
+
+audio.play();
+
+
 setTimeout(() => {
     messagesDiv.removeChild(messageDiv);
 }, 5000);
-}
+};
